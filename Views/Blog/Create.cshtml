@@ -1,0 +1,12 @@
+@model BlogPostModel;
+    <div>
+        <form asp-controller="Blog" asp-action="NewPost">
+            <label>Title:</label>
+            <input asp-for="Title" />
+            <label>Content: </label>
+            <textarea asp-for="Content"></textarea>
+            <label>Author: </label>
+            <input asp-for="Author" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>

@@ -1,0 +1,21 @@
+@model BlogPostModel;
+@{var post = Model;}
+    <div>
+        <h2>@post.Title</h2>
+        <p>@post.Content</p>
+        <p>Posted by: @post.Author at @post.CreatedAtAction</p>
+        <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId">Edit</a>
+        <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId">Delete</a>
+        <section>
+            <h3>Comments</h3>
+            <div>
+                <form asp-controller="Blog" asp-action="NewComment">
+                    <label>Author:</label>
+                    <input asp-for="Author" />
+                    <label>Content: </label>
+                    <textarea asp-for="Content"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
