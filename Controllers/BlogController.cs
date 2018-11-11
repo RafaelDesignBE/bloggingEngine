@@ -24,7 +24,16 @@ namespace bloggingEngine.Controllers
             BlogPostListModel.BlogPosts = blogposts;
             return View(BlogPostListModel);
         }
-
+    
+    [Route("blog/comments")]
+    [HttpGet()]
+        public IActionResult Comments()
+        {
+            var comments = _bloggingContext.Comments.ToList();
+            var CommentListModel = new CommentList();
+            CommentListModel.Comments = comments;
+            return View(CommentListModel);
+        }
 
     [Route("blog/post/{postId}/")]
     [HttpGet]
@@ -38,7 +47,28 @@ namespace bloggingEngine.Controllers
                 Author = blogpost.Author,
                 CreatedAtAction = blogpost.CreatedAtAction
             };
-            return View(BlogPostModelItem);
+            var comments = _bloggingContext.Comments.Where(c => c.PostId == postId).ToList();
+            ViewModel DetailModel = new ViewModel(); 
+            DetailModel.Post = BlogPostModelItem;
+            DetailModel.Comments = comments;
+            return View(DetailModel);
+    }
+
+    [Route("blog/post/{postId}/")]
+    [HttpPost]
+    public IActionResult NewComment( [FromRoute] int postId, [FromForm]Comment comment )
+    {
+            var comments = _bloggingContext.Comments;
+            comments.Add(new Comment
+            {
+                PostId = postId,
+                Author = comment.Author,
+                Content = comment.Content,
+                CreatedAtAction = DateTime.Now
+            });
+            _bloggingContext.SaveChanges();
+            
+            return RedirectToAction("Detail");
     }
 
     [Route("blog/edit/{postId}/")]

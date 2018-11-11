@@ -1,0 +1,8 @@
+@model CommentModel;
+<form asp-controller="Blog" asp-action="NewComment">
+    <label>Author:</label>
+    <input asp-for="Author" />
+    <label>Content: </label>
+    <textarea asp-for="Content"></textarea>
+    <button type="submit">Submit</button>
+</form>

@@ -10,6 +10,7 @@ namespace bloggingEngine.DataAccess
 
         }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
     public class Post
     {
@@ -19,7 +20,6 @@ namespace bloggingEngine.DataAccess
 
         public string Author { get; set; }
         public DateTime CreatedAtAction { get; set; }
-        public DbSet<Comment> Comments { get; set; }
     }
 
     public class Comment

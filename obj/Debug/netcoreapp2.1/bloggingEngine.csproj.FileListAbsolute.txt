@@ -34,3 +34,5 @@ C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\bloggingEngine.csp
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Detail.g.cshtml.cs
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Edit.g.cshtml.cs
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Create.g.cshtml.cs
+C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Comments.g.cshtml.cs
+C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CommentForm.g.cshtml.cs

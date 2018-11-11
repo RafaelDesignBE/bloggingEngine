@@ -17,6 +17,11 @@ using bloggingEngine.DataAccess;
     public List<Post> BlogPosts { get; set; }
   }
 
+  public class CommentList
+  {
+    public List<Comment> Comments { get; set; }
+  }
+
 
 public class CommentModel
   {
@@ -26,3 +31,10 @@ public class CommentModel
     public string Author { get; set; }
     public DateTime CreatedAtAction { get; set; }
   }
+
+  public class ViewModel  
+{  
+    public BlogPostModel Post { get; set; }  
+    public List<Comment> Comments { get; set; }  
+    public CommentModel CommentModel { get; set; }
+}  

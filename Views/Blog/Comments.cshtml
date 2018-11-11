@@ -1,0 +1,8 @@
+@model CommentList;
+<h1>Comments</h1>
+@foreach(var comment in Model.Comments) {
+    <div>
+        <p>@comment.Content</p>
+        <p>Posted by: @comment.Author at @comment.CreatedAtAction</p>
+    </div>
+}

@@ -80,6 +80,36 @@ namespace bloggingEngine
                 CreatedAtAction = DateTime.Now
             });
 
+            bloggingContext.Comments.Add(new Comment
+            {
+                PostId = 1,
+                Author = "Rafael",
+                Content = "C11",
+                CreatedAtAction = DateTime.Now
+            });
+            bloggingContext.Comments.Add(new Comment
+            {
+                PostId = 1,
+                Author = "Rafael",
+                Content = "C12",
+                CreatedAtAction = DateTime.Now
+            });
+
+            bloggingContext.Comments.Add(new Comment
+            {
+                PostId = 2,
+                Author = "Rafael",
+                Content = "C21",
+                CreatedAtAction = DateTime.Now
+            });
+            bloggingContext.Comments.Add(new Comment
+            {
+                PostId = 2,
+                Author = "Rafael",
+                Content = "C22",
+                CreatedAtAction = DateTime.Now
+            });
+
             bloggingContext.SaveChanges();
             
         }
