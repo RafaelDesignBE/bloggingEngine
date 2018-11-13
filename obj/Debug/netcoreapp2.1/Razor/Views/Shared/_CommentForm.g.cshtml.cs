@@ -56,12 +56,12 @@ using bloggingEngine.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(23, 492, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d56fca05d59f43b5af497360358de70b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "56ed78d070c74ddbbc09b42064500bd7", async() => {
                 BeginContext(75, 88, true);
                 WriteLiteral("\r\n    <label>Author:</label>\r\n    <br/>\r\n    <!-- <input asp-for=\"AuthorId\" /> -->\r\n    ");
                 EndContext();
                 BeginContext(163, 184, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b27410176b744fc488caf9dcf2a5d93c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc4c833947b24f45bc8b62c19f34352f", async() => {
                     BeginContext(198, 2, true);
                     WriteLiteral("\r\n");
                     EndContext();
@@ -74,7 +74,7 @@ using bloggingEngine.Models;
                     WriteLiteral("            ");
                     EndContext();
                     BeginContext(261, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aa4fd66d3e2e444ca09fd028198d5635", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "596a308690ac4d6bbc15c612391db5af", async() => {
                         BeginContext(295, 17, false);
 #line 8 "C:\Users\Rafael\dotnet\bloggingEngine\Views\Shared\_CommentForm.cshtml"
                                         Write(author.AuthorName);
@@ -136,7 +136,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvi
                 WriteLiteral("\r\n    <br/>\r\n    <label>Content: </label>\r\n    <br/>\r\n    ");
                 EndContext();
                 BeginContext(405, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a76cb7974c1448e9393d79ebaf0b378", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "931b6a45f6b34f189ed6216c4c4d1ff0", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();

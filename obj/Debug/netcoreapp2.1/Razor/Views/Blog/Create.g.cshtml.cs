@@ -60,12 +60,12 @@ using bloggingEngine.Models;
             WriteLiteral("    <div>\r\n        ");
             EndContext();
             BeginContext(39, 755, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92e7da4009dd485ebc1bc3c2b72d0f4f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4162261d8a4e40e88f61b04493b0eab4", async() => {
                 BeginContext(88, 87, true);
                 WriteLiteral("\r\n            <br/>\r\n            <label>Title:</label>\r\n            <br/>\r\n            ");
                 EndContext();
                 BeginContext(175, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "27befaa8b2e243408269fe860551f0f0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "171c92b273a34ff294bc472367bd2cfd", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -88,7 +88,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n            <br/>\r\n            <label>Content: </label>\r\n            <br/>\r\n            ");
                 EndContext();
                 BeginContext(295, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9988863ef5894244a9a10d7df104b224", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e20eea3a662a4e3ca386a91f18392a6e", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();
@@ -111,7 +111,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 WriteLiteral("\r\n            <br/>\r\n            <label>Author: </label>\r\n            <br/>\r\n            <!-- <input asp-for=\"AuthorId\" /> -->\r\n            ");
                 EndContext();
                 BeginContext(479, 209, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f2c4b4e415648779e73949caf2db653", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7857d3f33bec4adbad35f5fc2c681e5d", async() => {
                     BeginContext(511, 2, true);
                     WriteLiteral("\r\n");
                     EndContext();
@@ -124,7 +124,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                     WriteLiteral("                ");
                     EndContext();
                     BeginContext(586, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77bd1298092e4c6aaa949acd6ff0202c", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b550cc8cd7884b01bcc01b23766ea2eb", async() => {
                         BeginContext(620, 17, false);
 #line 18 "C:\Users\Rafael\dotnet\bloggingEngine\Views\Blog\Create.cshtml"
                                             Write(author.AuthorName);
