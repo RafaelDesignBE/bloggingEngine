@@ -1,0 +1,12 @@
+@model AuthorModel;
+    <div>
+        <form asp-controller="Blog" asp-action="NewUser">
+            <br/>
+            <label>Name:</label>
+            <br/>
+            <input asp-for="AuthorName" />
+            <br/>
+            <br/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>

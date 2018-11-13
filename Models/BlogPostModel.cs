@@ -85,5 +85,17 @@ public class CommentViewList
 {  
     public PostView PostView { get; set; }  
     public List<CommentView> Comments { get; set; }  
-    public CommentModel CommentModel { get; set; }
+    public CommentCreate CommentCreate { get; set; }
 }  
+
+public class PostCreate
+{
+  public BlogPost Post { get; set; }
+  public List<Author> Authors { get; set; }
+}
+
+public class CommentCreate
+{
+  public CommentModel Comment { get; set; }
+  public List<Author> Authors { get; set; }
+}

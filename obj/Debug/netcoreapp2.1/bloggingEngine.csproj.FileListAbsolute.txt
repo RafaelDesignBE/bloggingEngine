@@ -36,3 +36,4 @@ C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\E
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Create.g.cshtml.cs
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Comments.g.cshtml.cs
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CommentForm.g.cshtml.cs
+C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\AddUser.g.cshtml.cs

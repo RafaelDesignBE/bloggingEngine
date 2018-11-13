@@ -2,8 +2,11 @@
 @{var post = Model;}
     <div>
         <form asp-controller="Blog" asp-action="SaveEdit">
+            <br/>
             <input asp-for="Title" />
+            <br/>
             <textarea asp-for="Content"></textarea>
+            <br/>
             <button type="submit">Submit</button>
         </form>
         <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId">Back to post</a>

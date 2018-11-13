@@ -1,12 +1,25 @@
-@model BlogPostModel;
+@model PostCreate;
     <div>
         <form asp-controller="Blog" asp-action="NewPost">
+            <br/>
             <label>Title:</label>
-            <input asp-for="Title" />
+            <br/>
+            <input asp-for="Post.Title" />
+            <br/>
             <label>Content: </label>
-            <textarea asp-for="Content"></textarea>
+            <br/>
+            <textarea asp-for="Post.Content"></textarea>
+            <br/>
             <label>Author: </label>
-            <input asp-for="AuthorId" />
+            <br/>
+            <!-- <input asp-for="AuthorId" /> -->
+            <select asp-for="Post.AuthorId">
+                @foreach(var author in Model.Authors) {
+                <option value="@author.AuthorId">@author.AuthorName</option>
+                }
+            </select>
+            <br/>
+            <br/>
             <button type="submit">Submit</button>
         </form>
     </div>

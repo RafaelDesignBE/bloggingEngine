@@ -1,8 +1,17 @@
-@model CommentModel;
+@model CommentCreate;
 <form asp-controller="Blog" asp-action="NewComment">
     <label>Author:</label>
-    <input asp-for="AuthorId" />
+    <br/>
+    <!-- <input asp-for="AuthorId" /> -->
+    <select asp-for="Comment.AuthorId">
+        @foreach(var author in Model.Authors) {
+            <option value="@author.AuthorId">@author.AuthorName</option>
+        }
+    </select>
+    <br/>
     <label>Content: </label>
-    <textarea asp-for="Content"></textarea>
+    <br/>
+    <textarea asp-for="Comment.Content"></textarea>
+    <br/>
     <button type="submit">Submit</button>
 </form>

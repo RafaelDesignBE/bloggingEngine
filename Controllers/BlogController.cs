@@ -95,6 +95,10 @@ namespace bloggingEngine.Controllers
             ViewModel DetailModel = new ViewModel(); 
             DetailModel.PostView = PostView;
             DetailModel.Comments = comments;
+            CommentCreate CommentCreate = new CommentCreate();
+            var AuthorList = _bloggingContext.Authors.ToList();
+            CommentCreate.Authors = AuthorList;
+            DetailModel.CommentCreate = CommentCreate;
             return View(DetailModel);
     }
 
@@ -153,9 +157,14 @@ namespace bloggingEngine.Controllers
 
     [Route("blog/create/")]
     [HttpGet]
-    public IActionResult CreatePost( [FromRoute] int postId )
+    public IActionResult Create()
     {
-            return View("Create");
+        var PostCreate = new PostCreate(){
+
+        };
+        var AuthorList = _bloggingContext.Authors.ToList();
+        PostCreate.Authors = AuthorList;
+        return View(PostCreate);
     }
 
 
@@ -170,6 +179,27 @@ namespace bloggingEngine.Controllers
                 Content = post.Content,
                 CreatedAtAction = DateTime.Now
             });
+        _bloggingContext.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
+
+    [Route("blog/adduser/")]
+    [HttpGet]
+    public IActionResult AddUser()
+    {
+        return View();
+    }
+
+    [Route("blog/adduser/")]
+    [HttpPost]
+    public IActionResult NewUser([FromForm]Author author)
+    {
+        _bloggingContext.Authors.Add(new Author
+        {
+            AuthorName = author.AuthorName,
+            CreatedAtAction = DateTime.Now
+        });
         _bloggingContext.SaveChanges();
         return RedirectToAction("Index");
     }

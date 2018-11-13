@@ -112,14 +112,12 @@ namespace bloggingEngine
 
             bloggingContext.Authors.Add(new Author
             {
-                AuthorId = 1,
                 AuthorName = "Rafael Fernandez",
                 CreatedAtAction = DateTime.Now
             });
 
             bloggingContext.Authors.Add(new Author
             {
-                AuthorId = 2,
                 AuthorName = "John Doe",
                 CreatedAtAction = DateTime.Now
             });
