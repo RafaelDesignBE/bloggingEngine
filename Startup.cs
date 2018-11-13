@@ -66,7 +66,7 @@ namespace bloggingEngine
 
             bloggingContext.Posts.Add(new Post
             {
-                Author = "Rafael",
+                AuthorId = 1,
                 Title = "This is my first blogpost",
                 Content = "The first blogpost is here.",
                 CreatedAtAction = DateTime.Now
@@ -74,7 +74,7 @@ namespace bloggingEngine
 
             bloggingContext.Posts.Add(new Post
             {
-                Author = "Rafael",
+                AuthorId = 2,
                 Title = "This is my second blogpost",
                 Content = "The first second is here.",
                 CreatedAtAction = DateTime.Now
@@ -83,14 +83,14 @@ namespace bloggingEngine
             bloggingContext.Comments.Add(new Comment
             {
                 PostId = 1,
-                Author = "Rafael",
+                AuthorId = 1,
                 Content = "C11",
                 CreatedAtAction = DateTime.Now
             });
             bloggingContext.Comments.Add(new Comment
             {
                 PostId = 1,
-                Author = "Rafael",
+                AuthorId = 2,
                 Content = "C12",
                 CreatedAtAction = DateTime.Now
             });
@@ -98,15 +98,29 @@ namespace bloggingEngine
             bloggingContext.Comments.Add(new Comment
             {
                 PostId = 2,
-                Author = "Rafael",
+                AuthorId = 2,
                 Content = "C21",
                 CreatedAtAction = DateTime.Now
             });
             bloggingContext.Comments.Add(new Comment
             {
                 PostId = 2,
-                Author = "Rafael",
+                AuthorId = 2,
                 Content = "C22",
+                CreatedAtAction = DateTime.Now
+            });
+
+            bloggingContext.Authors.Add(new Author
+            {
+                AuthorId = 1,
+                AuthorName = "Rafael Fernandez",
+                CreatedAtAction = DateTime.Now
+            });
+
+            bloggingContext.Authors.Add(new Author
+            {
+                AuthorId = 2,
+                AuthorName = "John Doe",
                 CreatedAtAction = DateTime.Now
             });
 

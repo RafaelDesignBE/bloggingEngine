@@ -11,6 +11,7 @@ namespace bloggingEngine.DataAccess
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Author> Authors { get; set; }
     }
     public class Post
     {
@@ -18,7 +19,7 @@ namespace bloggingEngine.DataAccess
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public string Author { get; set; }
+        public int AuthorId { get; set; }
         public DateTime CreatedAtAction { get; set; }
     }
 
@@ -27,7 +28,14 @@ namespace bloggingEngine.DataAccess
         public int CommentId { get; set; }
         public int PostId { get; set; }
         public string Content { get; set; }
-        public string Author { get; set; }
+        public int AuthorId { get; set; }
+        public DateTime CreatedAtAction { get; set; }
+    }
+
+    public class Author
+    {
+        public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
         public DateTime CreatedAtAction { get; set; }
     }
 }

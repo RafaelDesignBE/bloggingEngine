@@ -3,6 +3,6 @@
 @foreach(var comment in Model.Comments) {
     <div>
         <p>@comment.Content</p>
-        <p>Posted by: @comment.Author at @comment.CreatedAtAction</p>
+        <p>Posted by: @comment.AuthorId at @comment.CreatedAtAction</p>
     </div>
 }

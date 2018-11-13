@@ -1,16 +1,16 @@
 @model ViewModel;
     <div>
-        <h2>@Model.Post.Title</h2>
-        <p>@Model.Post.Content</p>
-        <p>Posted by: @Model.Post.Author at @Model.Post.CreatedAtAction</p>
-        <a asp-controller="blog" asp-action="edit" asp-route-id="@Model.Post.PostId">Edit</a>
-        <a asp-controller="blog" asp-action="delete" asp-route-id="@Model.Post.PostId">Delete</a>
+        <h2>@Model.PostView.Post.Title</h2>
+        <p>@Model.PostView.Post.Content</p>
+        <p>Posted by: @Model.PostView.Author.AuthorName at @Model.PostView.Post.CreatedAtAction</p>
+        <a asp-controller="blog" asp-action="edit" asp-route-id="@Model.PostView.Post.PostId">Edit</a>
+        <a asp-controller="blog" asp-action="delete" asp-route-id="@Model.PostView.Post.PostId">Delete</a>
         <section>
             <h3>Comments</h3>
             @foreach(var comment in Model.Comments) {
             <div>
                 <p>@comment.Content</p>
-                <p>Posted by: @comment.Author at @comment.CreatedAtAction</p>
+                <p>Posted by: @comment.AuthorName at @comment.CreatedAtAction</p>
             </div>
             
         }

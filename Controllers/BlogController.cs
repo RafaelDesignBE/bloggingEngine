@@ -40,16 +40,43 @@ namespace bloggingEngine.Controllers
     public IActionResult Detail( [FromRoute] int postId )
     {
             var blogpost = _bloggingContext.Posts.Find(postId);
+            var PostAuthor = _bloggingContext.Authors.Find(blogpost.AuthorId);
             var BlogPostModelItem = new BlogPostModel() {
                 PostId = blogpost.PostId,
                 Title = blogpost.Title,
                 Content = blogpost.Content,
-                Author = blogpost.Author,
+                AuthorId = blogpost.AuthorId,
                 CreatedAtAction = blogpost.CreatedAtAction
             };
-            var comments = _bloggingContext.Comments.Where(c => c.PostId == postId).ToList();
+            var AuthorModelItem = new AuthorModel() {
+                AuthorId = PostAuthor.AuthorId,
+                AuthorName = PostAuthor.AuthorName,
+            };
+            PostView PostView = new PostView();
+            PostView.Post = BlogPostModelItem;
+            PostView.Author = AuthorModelItem;
+            CommentViewList CommentViewList = new CommentViewList();
+
+            // var comments = _bloggingContext.Comments.Where(c => c.PostId == postId).ToList();
+            
+            var comments = 
+    (
+        from comment in _bloggingContext.Comments
+        join author in _bloggingContext.Authors
+        on comment.AuthorId equals author.AuthorId
+        where comment.PostId == postId
+        select new CommentView()
+        {
+            CommentId = comment.CommentId,
+            AuthorId = comment.AuthorId,
+            AuthorName = author.AuthorName,
+            Content = comment.Content,
+            CreatedAtAction = comment.CreatedAtAction,
+        }
+    ).ToList();
+
             ViewModel DetailModel = new ViewModel(); 
-            DetailModel.Post = BlogPostModelItem;
+            DetailModel.PostView = PostView;
             DetailModel.Comments = comments;
             return View(DetailModel);
     }
@@ -62,7 +89,7 @@ namespace bloggingEngine.Controllers
             comments.Add(new Comment
             {
                 PostId = postId,
-                Author = comment.Author,
+                AuthorId = comment.AuthorId,
                 Content = comment.Content,
                 CreatedAtAction = DateTime.Now
             });
@@ -80,7 +107,7 @@ namespace bloggingEngine.Controllers
                 PostId = blogpost.PostId,
                 Title = blogpost.Title,
                 Content = blogpost.Content,
-                Author = blogpost.Author,
+                AuthorId = blogpost.AuthorId,
                 CreatedAtAction = blogpost.CreatedAtAction
             };
             return View(BlogPostModelItem);
@@ -121,7 +148,7 @@ namespace bloggingEngine.Controllers
     {
         _bloggingContext.Posts.Add(new Post
             {
-                Author = post.Author,
+                AuthorId = post.AuthorId,
                 Title = post.Title,
                 Content = post.Content,
                 CreatedAtAction = DateTime.Now

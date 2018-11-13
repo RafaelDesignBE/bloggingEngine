@@ -1,7 +1,7 @@
 @model CommentModel;
 <form asp-controller="Blog" asp-action="NewComment">
     <label>Author:</label>
-    <input asp-for="Author" />
+    <input asp-for="AuthorId" />
     <label>Content: </label>
     <textarea asp-for="Content"></textarea>
     <button type="submit">Submit</button>
