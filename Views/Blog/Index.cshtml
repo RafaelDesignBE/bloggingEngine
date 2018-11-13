@@ -5,7 +5,7 @@
     <div>
         <h2>@post.Title</h2>
         <p>@post.Content</p>
-        <p>Posted by: @post.AuthorId at @post.CreatedAtAction</p>
+        <p>Posted by: @post.AuthorName at @post.CreatedAtAction</p>
         <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId">Details</a>
         <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId">Edit</a>
         <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId">Delete</a>

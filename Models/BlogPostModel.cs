@@ -22,9 +22,18 @@ using bloggingEngine.DataAccess;
     public List<PostView> Posts { get; set; }
   }
 
+  public class BlogPost {
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+    public DateTime CreatedAtAction { get; set; }
+    public string AuthorName { get; set; }
+    public int AuthorId { get; set; }
+  }
+
   public class BlogPostList
   {
-    public List<Post> BlogPosts { get; set; }
+    public List<BlogPost> BlogPosts { get; set; }
   }
 
   public class CommentList
@@ -61,8 +70,8 @@ public class CommentViewList
     public int CommentId { get; set; }
     public int PostId { get; set; }
     public string Content { get; set; }
-    public int AuthorId { get; set; }
     public string AuthorName { get; set; }
+    public int AuthorId { get; set; }    
     public DateTime CreatedAtAction { get; set; }
   }
 

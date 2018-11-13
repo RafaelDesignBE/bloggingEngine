@@ -19,8 +19,25 @@ namespace bloggingEngine.Controllers
     [HttpGet()]
         public IActionResult Index()
         {
-            var blogposts = _bloggingContext.Posts.ToList();
             var BlogPostListModel = new BlogPostList();
+
+            var blogposts = 
+    (
+        from post in _bloggingContext.Posts
+        join author in _bloggingContext.Authors
+        on post.AuthorId equals author.AuthorId
+        where post.PostId == post.PostId
+        select new BlogPost()
+        {
+            PostId = post.PostId,
+            Title = post.Title,
+            Content = post.Content,
+            CreatedAtAction = post.CreatedAtAction,
+            AuthorName = author.AuthorName,
+            AuthorId = post.AuthorId
+        }
+    ).ToList();
+
             BlogPostListModel.BlogPosts = blogposts;
             return View(BlogPostListModel);
         }
