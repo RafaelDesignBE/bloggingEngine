@@ -204,5 +204,17 @@ namespace bloggingEngine.Controllers
         return RedirectToAction("Index");
     }
 
+    [Route("blog/author/{authorId}")]
+    [HttpGet()]
+        public IActionResult Author([FromRoute] int authorId)
+        {
+            var author = _bloggingContext.Authors.Find(authorId);
+            var authorModel = new AuthorModel() {
+                AuthorId = author.AuthorId,
+                AuthorName = author.AuthorName,
+            };
+            return View(authorModel);
+        }
+
     }
 }
