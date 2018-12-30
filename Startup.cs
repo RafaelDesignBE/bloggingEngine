@@ -35,7 +35,8 @@ namespace bloggingEngine
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<BloggingContext>(opt => opt.UseInMemoryDatabase("xyz"));
+            services.AddDbContext<BloggingContext>(opt => opt.UseSqlite(@"Data Source=blog_db.db"));
+            //services.AddDbContext<BloggingContext>(opt => opt.UseInMemoryDatabase("xyz"));
             // services.AddDbContext<BloggingContext>(opt => opt.UseInMemoryDatabase("bloggingctx"));
         }
 

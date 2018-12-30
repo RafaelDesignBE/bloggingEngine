@@ -5,10 +5,12 @@
             <label>Title:</label>
             <br/>
             <input asp-for="Post.Title" />
+            <span asp-validation-for="Post.Title" class="text-danger"></span>
             <br/>
             <label>Content: </label>
             <br/>
             <textarea asp-for="Post.Content"></textarea>
+            <span asp-validation-for="Post.Content" class="text-danger"></span>
             <br/>
             <label>Author: </label>
             <br/>
@@ -18,6 +20,7 @@
                 <option value="@author.AuthorId">@author.AuthorName</option>
                 }
             </select>
+            <span asp-validation-for="Post.AuthorId" class="text-danger"></span>
             <br/>
             <br/>
             <button type="submit">Submit</button>

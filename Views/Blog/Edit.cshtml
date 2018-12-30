@@ -4,8 +4,10 @@
         <form asp-controller="Blog" asp-action="SaveEdit">
             <br/>
             <input asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
             <br/>
             <textarea asp-for="Content"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
             <br/>
             <button type="submit">Submit</button>
         </form>

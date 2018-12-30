@@ -1,9 +1,7 @@
 using System;
-using bloggingEngine.Models;
 using bloggingEngine.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-
 namespace bloggingEngine.Controllers
 {
     public class BlogController : Controller
@@ -14,7 +12,8 @@ namespace bloggingEngine.Controllers
         {
             _bloggingContext = bloggingContext;
         }
-
+        
+    [UrlActionFilter]
     [Route("blog")]
     [HttpGet()]
         public IActionResult Index()
@@ -41,7 +40,7 @@ namespace bloggingEngine.Controllers
             BlogPostListModel.BlogPosts = blogposts;
             return View(BlogPostListModel);
         }
-    
+    [UrlActionFilter]
     [Route("blog/comments")]
     [HttpGet()]
         public IActionResult Comments()
@@ -51,7 +50,7 @@ namespace bloggingEngine.Controllers
             CommentListModel.Comments = comments;
             return View(CommentListModel);
         }
-
+    [UrlActionFilter]
     [Route("blog/post/{postId}/")]
     [HttpGet]
     public IActionResult Detail( [FromRoute] int postId )
@@ -101,11 +100,15 @@ namespace bloggingEngine.Controllers
             DetailModel.CommentCreate = CommentCreate;
             return View(DetailModel);
     }
-
+    [UrlActionFilter]
     [Route("blog/post/{postId}/")]
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult NewComment( [FromRoute] int postId, [FromForm]Comment comment )
     {
+            
+            if (ModelState.IsValid)
+            {
             var comments = _bloggingContext.Comments;
             comments.Add(new Comment
             {
@@ -114,11 +117,17 @@ namespace bloggingEngine.Controllers
                 Content = comment.Content,
                 CreatedAtAction = DateTime.Now
             });
-            _bloggingContext.SaveChanges();
             
+            _bloggingContext.SaveChanges();
             return RedirectToAction("Detail");
-    }
+            }
+        var PostCreate = new PostCreate(){
 
+        };
+        
+        return View("Detail");
+    }
+    [UrlActionFilter]
     [Route("blog/edit/{postId}/")]
     [HttpGet]
     public IActionResult Edit( [FromRoute] int postId )
@@ -131,9 +140,9 @@ namespace bloggingEngine.Controllers
                 AuthorId = blogpost.AuthorId,
                 CreatedAtAction = blogpost.CreatedAtAction
             };
-            return View(BlogPostModelItem);
+            return View("Edit", BlogPostModelItem);
     }
-
+    [UrlActionFilter]
     [Route("blog/edit/{postId}/")]
     [HttpPost]
     public IActionResult SaveEdit( [FromRoute] int postId, [FromForm]Post post )
@@ -141,10 +150,17 @@ namespace bloggingEngine.Controllers
         var blogpost = _bloggingContext.Posts.Find(postId);
         blogpost.Title = post.Title;
         blogpost.Content = post.Content;
-        _bloggingContext.SaveChanges();
+        
+        if (ModelState.IsValid)
+        {
+            _bloggingContext.SaveChanges();
         return RedirectToAction("Detail");
-    }
+        
+        }
 
+        return this.Edit(postId);
+    }
+    [UrlActionFilter]
     [Route("blog/delete/{postId}/")]
     [HttpGet]
     public IActionResult DeletePost( [FromRoute] int postId, [FromForm]Post post )
@@ -154,7 +170,7 @@ namespace bloggingEngine.Controllers
         _bloggingContext.SaveChanges();
         return RedirectToAction("Index");
     }
-
+    [UrlActionFilter]
     [Route("blog/create/")]
     [HttpGet]
     public IActionResult Create()
@@ -164,14 +180,15 @@ namespace bloggingEngine.Controllers
         };
         var AuthorList = _bloggingContext.Authors.ToList();
         PostCreate.Authors = AuthorList;
-        return View(PostCreate);
+        return View("Create", PostCreate);
     }
 
-
+    [UrlActionFilter]
     [Route("blog/create/")]
     [HttpPost]
     public IActionResult NewPost( [FromForm]Post post )
     {
+        
         _bloggingContext.Posts.Add(new Post
             {
                 AuthorId = post.AuthorId,
@@ -179,11 +196,16 @@ namespace bloggingEngine.Controllers
                 Content = post.Content,
                 CreatedAtAction = DateTime.Now
             });
+        if (ModelState.IsValid)
+        {
         _bloggingContext.SaveChanges();
         return RedirectToAction("Index");
+        }
+
+        return this.Create();
     }
 
-
+    [UrlActionFilter]
     [Route("blog/adduser/")]
     [HttpGet]
     public IActionResult AddUser()
@@ -191,6 +213,7 @@ namespace bloggingEngine.Controllers
         return View();
     }
 
+    [UrlActionFilter]
     [Route("blog/adduser/")]
     [HttpPost]
     public IActionResult NewUser([FromForm]Author author)
@@ -204,6 +227,7 @@ namespace bloggingEngine.Controllers
         return RedirectToAction("Index");
     }
 
+    [UrlActionFilter]
     [Route("blog/author/{authorId}")]
     [HttpGet()]
         public IActionResult Author([FromRoute] int authorId)

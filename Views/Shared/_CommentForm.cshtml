@@ -1,5 +1,6 @@
 @model CommentCreate;
 <form asp-controller="Blog" asp-action="NewComment">
+    <div asp-validation-summary="All" class="text-danger"></div>
     <label>Author:</label>
     <br/>
     <!-- <input asp-for="AuthorId" /> -->
@@ -8,10 +9,12 @@
             <option value="@author.AuthorId">@author.AuthorName</option>
         }
     </select>
+    <span asp-validation-for="Comment.AuthorId" class="text-danger"></span>
     <br/>
     <label>Content: </label>
     <br/>
     <textarea asp-for="Comment.Content"></textarea>
+    <span asp-validation-for="Comment.Content" class="text-danger"></span>
     <br/>
     <button type="submit">Submit</button>
 </form>

@@ -38,3 +38,4 @@ C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\C
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CommentForm.g.cshtml.cs
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\AddUser.g.cshtml.cs
 C:\Users\Rafael\dotnet\bloggingEngine\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Author.g.cshtml.cs
+C:\Users\Rafael\dotnet\bloggingEngine\bin\Debug\netcoreapp2.1\nlog.config
