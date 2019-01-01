@@ -35,7 +35,7 @@ namespace bloggingEngine.Controllers
             AuthorName = author.AuthorName,
             AuthorId = post.AuthorId
         }
-    ).ToList();
+    ).OrderByDescending(c => c.CreatedAtAction).ToList();
 
             BlogPostListModel.BlogPosts = blogposts;
             return View(BlogPostListModel);

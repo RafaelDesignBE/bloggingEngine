@@ -1,14 +1,29 @@
 @model BlogPostList;
 <h1>Posts</h1>
-<a asp-controller="blog" asp-action="create">Create post</a><br/>
-<a asp-controller="blog" asp-action="adduser">Add User</a>
+<a asp-controller="blog" asp-action="create" class="btn btn-success">Create post</a>
+<a asp-controller="blog" asp-action="adduser" class="btn btn-success">Add User</a>
+<br><br>
 @foreach(var post in Model.BlogPosts) {
-    <div>
-        <h2>@post.Title</h2>
-        <p>@post.Content</p>
-        <p>Posted by: <a asp-controller="blog" asp-action="author" asp-route-id="@post.AuthorId">@post.AuthorName</a> at @post.CreatedAtAction</p>
-        <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId" class="btn btn-primary">Details</a>
-        <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId" class="btn btn-primary">Edit</a>
-        <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId" class="btn btn-danger">Delete</a>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">@post.Title</h2>
+        </div>
+        <div class="panel-body">
+            @if(post.Content.Length>280){
+                <p>@post.Content.Substring(0,280)...</p>
+            } else {
+                <p>@post.Content</p>
+            }
+
+            
+            
+            
+        </div>
+        <div class="panel-footer">
+            <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId" class="btn btn-info">Details</a>
+            <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId" class="btn btn-warning">Edit</a>
+            <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId" class="btn btn-danger">Delete</a>
+            Posted by: <a asp-controller="blog" asp-action="author" asp-route-id="@post.AuthorId">@post.AuthorName</a> at @post.CreatedAtAction
+        </div>
     </div>
 }

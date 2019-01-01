@@ -1,15 +1,19 @@
 @model BlogPostModel;
 @{var post = Model;}
     <div>
+        <h1>Edit post</h1>
         <form asp-controller="Blog" asp-action="SaveEdit">
-            <br/>
-            <input asp-for="Title" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-            <br/>
-            <textarea asp-for="Content"></textarea>
-            <span asp-validation-for="Content" class="text-danger"></span>
-            <br/>
-            <button type="submit">Submit</button>
+            <div class="form-group">
+                <label for="posttitle">Title:</label>
+                <input asp-for="Title" id="posttitle" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="postcontent">Content: </label>
+                <textarea asp-for="Content" id="postcontent" class="form-control"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId" class="btn btn-default">Back to post</a>
         </form>
-        <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId">Back to post</a>
     </div>

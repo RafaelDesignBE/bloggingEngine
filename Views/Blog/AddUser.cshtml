@@ -1,12 +1,11 @@
 @model AuthorModel;
     <div>
-        <form asp-controller="Blog" asp-action="NewUser">
-            <br/>
-            <label>Name:</label>
-            <br/>
-            <input asp-for="AuthorName" />
-            <br/>
-            <br/>
-            <button type="submit">Submit</button>
+        <h1>Add user</h1>
+        <form asp-controller="Blog" asp-action="NewUser" class="form-inline">
+            <div class="form-group">
+                <label for="authorname">Name:</label>
+                <input asp-for="AuthorName" id="authorname" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
