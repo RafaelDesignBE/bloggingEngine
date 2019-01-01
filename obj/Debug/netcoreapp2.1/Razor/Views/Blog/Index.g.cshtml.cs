@@ -62,7 +62,7 @@ using bloggingEngine.Models;
             WriteLiteral("<h1>Posts</h1>\r\n");
             EndContext();
             BeginContext(38, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7a05dfbf2c04aea8707e1cdb848462f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44ad5e0866334f4984743b7014b5e0fa", async() => {
                 BeginContext(83, 11, true);
                 WriteLiteral("Create post");
                 EndContext();
@@ -86,7 +86,7 @@ using bloggingEngine.Models;
             WriteLiteral("<br/>\r\n");
             EndContext();
             BeginContext(105, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "701a810609ce43958e4bafa1e1de4c2e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e94002337db45d7bd9a00020390b80e", async() => {
                 BeginContext(151, 8, true);
                 WriteLiteral("Add User");
                 EndContext();
@@ -138,7 +138,7 @@ using bloggingEngine.Models;
             WriteLiteral("</p>\r\n        <p>Posted by: ");
             EndContext();
             BeginContext(299, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3e432cf9a5a49aa9475f184951d743e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ea2dcaffa7846e08b286709b0e73df3", async() => {
                 BeginContext(375, 15, false);
 #line 9 "C:\Users\Rafael\dotnet\bloggingEngine\Views\Blog\Index.cshtml"
                                                                                             Write(post.AuthorName);
@@ -189,7 +189,7 @@ using bloggingEngine.Models;
             WriteLiteral("</p>\r\n        ");
             EndContext();
             BeginContext(433, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "001be860b57f4accbc7d30558f9731fb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bb0d3b0197b40b8974dc6ec1b997aa8", async() => {
                 BeginContext(528, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -227,7 +227,7 @@ using bloggingEngine.Models;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(549, 103, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9719dacac64341819721404930d2280c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "21517447f16e45f382555ad7fe580371", async() => {
                 BeginContext(644, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -265,7 +265,7 @@ using bloggingEngine.Models;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(662, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7304a5d9b0164c17b2024e0992ef4034", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f1ca38e0722495d9c05738c80e9a101", async() => {
                 BeginContext(758, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

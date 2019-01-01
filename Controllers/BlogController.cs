@@ -98,13 +98,13 @@ namespace bloggingEngine.Controllers
             var AuthorList = _bloggingContext.Authors.ToList();
             CommentCreate.Authors = AuthorList;
             DetailModel.CommentCreate = CommentCreate;
-            return View(DetailModel);
+            return View("Detail", DetailModel);
     }
     [UrlActionFilter]
     [Route("blog/post/{postId}/")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult NewComment( [FromRoute] int postId, [FromForm]Comment comment )
+    public IActionResult NewComment( [FromRoute] int postId, [FromForm]CommentCreate commentCreate )
     {
             
             if (ModelState.IsValid)
@@ -113,19 +113,22 @@ namespace bloggingEngine.Controllers
             comments.Add(new Comment
             {
                 PostId = postId,
-                AuthorId = comment.AuthorId,
-                Content = comment.Content,
+                AuthorId = commentCreate.Comment.AuthorId,
+                Content = commentCreate.Comment.Content,
                 CreatedAtAction = DateTime.Now
             });
+            Console.WriteLine("TestId: "+ commentCreate.Comment.AuthorId + " TestContent: " + commentCreate.Comment.Content);
             
             _bloggingContext.SaveChanges();
             return RedirectToAction("Detail");
             }
         var PostCreate = new PostCreate(){
-
+            
         };
         
-        return View("Detail");
+        return this.Detail(postId);
+        // return View("Detail");
+        // return RedirectToAction("Detail");
     }
     [UrlActionFilter]
     [Route("blog/edit/{postId}/")]

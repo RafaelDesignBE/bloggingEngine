@@ -14,9 +14,28 @@
             </div>
             
         }
-        <div>
-            <!-- <partial name="_CommentForm"/> -->
-            @Html.Partial("_CommentForm", Model.CommentCreate)
+        <div> 
+
+            <form asp-controller="Blog" asp-action="NewComment">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <label>Author:</label>
+    <br/>
+    <!-- <input asp-for="AuthorId" /> -->
+    <select asp-for="CommentCreate.Comment.AuthorId">
+        @foreach(var author in Model.CommentCreate.Authors) {
+            <option value="@author.AuthorId">@author.AuthorName</option>
+        }
+    </select>
+    <span asp-validation-for="CommentCreate.Comment.AuthorId" class="text-danger"></span>
+    <br/>
+    <label>Content: </label>
+    <br/>
+    <textarea asp-for="CommentCreate.Comment.Content"></textarea>
+    <span asp-validation-for="CommentCreate.Comment.Content" class="text-danger"></span>
+    <br/>
+    <button type="submit">Submit</button>
+</form>
+
         </div>
         </section>
     </div>

@@ -112,6 +112,5 @@ public class CommentCreate
 {
   [Required(ErrorMessage ="Your comment cannot be empty.")]
   public CommentModel Comment { get; set; }
-  [Required(ErrorMessage ="You must choose an author.")]
   public List<Author> Authors { get; set; }
 }
