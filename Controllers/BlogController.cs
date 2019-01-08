@@ -278,7 +278,7 @@ namespace bloggingEngine.Controllers
     [HttpGet]
     public IActionResult AddUser()
     {
-        return View();
+        return View("AddUser");
     }
 
     [UrlActionFilter]
@@ -291,8 +291,12 @@ namespace bloggingEngine.Controllers
             AuthorName = author.AuthorName,
             CreatedAtAction = DateTime.Now
         });
+        if (ModelState.IsValid)
+        {
         _bloggingContext.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction("Users");
+        }
+        return this.AddUser();
     }
 
     [UrlActionFilter]

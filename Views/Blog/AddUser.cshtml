@@ -5,6 +5,7 @@
             <div class="form-group">
                 <label for="authorname">Name:</label>
                 <input asp-for="AuthorName" id="authorname" class="form-control" />
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
