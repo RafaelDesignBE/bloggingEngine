@@ -35,3 +35,25 @@ body {
         display: none;
     }
 }
+
+.d-flex {
+    display: flex;
+}
+
+.b-height {
+    line-height: 34px;
+}
+
+.flexspace {
+    flex: 1;
+}
+
+.toptitle .btn {
+    margin-top: 23px;
+    margin-bottom: 12px;
+}
+
+.panelbuttontitle {
+    line-height: 34px;
+    margin-left: .5em;
+}

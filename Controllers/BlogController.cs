@@ -39,7 +39,8 @@ namespace bloggingEngine.Controllers
 
             BlogPostListModel.BlogPosts = blogposts;
             return View(BlogPostListModel);
-        }
+    }
+
     [UrlActionFilter]
     [Route("blog/comments")]
     [HttpGet()]
@@ -50,6 +51,18 @@ namespace bloggingEngine.Controllers
             CommentListModel.Comments = comments;
             return View(CommentListModel);
         }
+    [UrlActionFilter]
+    [Route("blog/users")]
+    [HttpGet()]
+        public IActionResult Users()
+        {
+            var authors = _bloggingContext.Authors.ToList();
+            var authorList = new AuthorList();
+            authorList.Authors = authors;
+            return View(authorList);
+        }
+
+
     [UrlActionFilter]
     [Route("blog/post/{postId}/")]
     [HttpGet]
@@ -169,10 +182,62 @@ namespace bloggingEngine.Controllers
     public IActionResult DeletePost( [FromRoute] int postId, [FromForm]Post post )
     {
         var blogpost = _bloggingContext.Posts.Find(postId);
+
+        // remove all comments of post (cleanup)
+        var comments = _bloggingContext.Comments;
+        var postComments = comments.Where(p => p.PostId == postId).ToList();
+        foreach (var postComment in postComments){
+            comments.Remove(postComment);
+        }
+
         _bloggingContext.Posts.Remove(blogpost);
         _bloggingContext.SaveChanges();
         return RedirectToAction("Index");
     }
+
+
+    [UrlActionFilter]
+    [Route("blog/deletecomment/{commentId}/")]
+    [HttpGet]
+    public IActionResult DeleteComment( [FromRoute] int commentId, int postId )
+    {
+        var comment = _bloggingContext.Comments.Find(commentId);
+        _bloggingContext.Comments.Remove(comment);
+        System.Console.WriteLine(postId);
+        _bloggingContext.SaveChanges();
+        return RedirectToAction("post", "blog", new {@id=postId});
+    }
+
+
+    [UrlActionFilter]
+    [Route("blog/deleteauthor/{authorId}/")]
+    [HttpGet]
+    public IActionResult DeleteAuthor( [FromRoute] int authorId )
+    {
+        var author = _bloggingContext.Authors.Find(authorId);
+        var posts = _bloggingContext.Posts;
+
+        // remove all posts of user (cleanup)
+        var authorPosts = posts.Where(p => p.AuthorId == authorId).ToList();
+        foreach (var authorPost in authorPosts){
+            posts.Remove(authorPost);
+        }
+
+
+        // remove all comments of user (cleanup)
+        var comments = _bloggingContext.Comments;
+        var authorComments = comments.Where(p => p.AuthorId == authorId).ToList();
+        foreach (var authorComment in authorComments){
+            comments.Remove(authorComment);
+        }
+
+
+        _bloggingContext.Authors.Remove(author); // remove user
+        _bloggingContext.SaveChanges();
+        return RedirectToAction("Users");
+    }
+
+
     [UrlActionFilter]
     [Route("blog/create/")]
     [HttpGet]
@@ -236,11 +301,29 @@ namespace bloggingEngine.Controllers
         public IActionResult Author([FromRoute] int authorId)
         {
             var author = _bloggingContext.Authors.Find(authorId);
-            var authorModel = new AuthorModel() {
+            var authorPostsModel = new AuthorPostsModel() {
                 AuthorId = author.AuthorId,
                 AuthorName = author.AuthorName,
             };
-            return View(authorModel);
+            var posts = _bloggingContext.Posts;
+
+            // remove all posts of user (cleanup)
+             var blogposts = 
+    (
+        from post in _bloggingContext.Posts
+        where post.AuthorId == authorId
+        select new BlogPost()
+        {
+            PostId = post.PostId,
+            Title = post.Title,
+            Content = post.Content,
+            CreatedAtAction = post.CreatedAtAction,
+            AuthorName = author.AuthorName,
+            AuthorId = post.AuthorId
+        }
+    ).OrderByDescending(c => c.CreatedAtAction).ToList();
+            authorPostsModel.BlogPosts = blogposts;
+            return View(authorPostsModel);
         }
 
     }

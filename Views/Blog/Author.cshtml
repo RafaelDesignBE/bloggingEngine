@@ -1,4 +1,25 @@
-@model AuthorModel;
+@model AuthorPostsModel;
     <div>
         <h1>@Model.AuthorName</h1>
+        @foreach(var post in Model.BlogPosts) {
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">@post.Title</h2>
+        </div>
+        <div class="panel-body">
+            @if(post.Content.Length>280){
+                <p>@post.Content.Substring(0,280)...</p>
+            } else {
+                <p>@post.Content</p>
+            }
+            
+        </div>
+        <div class="panel-footer">
+            <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId" class="btn btn-info">Details</a>
+            <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId" class="btn btn-warning">Edit</a>
+            <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId" class="btn btn-danger">Delete</a>
+            Posted by: <a asp-controller="blog" asp-action="author" asp-route-id="@post.AuthorId">@post.AuthorName</a> at @post.CreatedAtAction
+        </div>
+    </div>
+}
     </div>

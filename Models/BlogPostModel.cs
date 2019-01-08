@@ -93,6 +93,15 @@ public class CommentViewList
     public string AuthorName { get; set; }
   }
 
+  public class AuthorPostsModel
+  {
+    public int AuthorId { get; set; }
+    [Required(ErrorMessage ="You must choose a name.")]
+    public string AuthorName { get; set; }
+
+    public List<BlogPost> BlogPosts { get; set; }
+  }
+
   public class ViewModel  
 {  
     public PostView PostView { get; set; }  

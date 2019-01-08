@@ -1,0 +1,18 @@
+@model AuthorList;
+<div class="d-flex toptitle">
+    <h1>Users</h1>
+    <div class="flexspace"></div>
+    <a asp-controller="blog" asp-action="adduser" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add User</a>
+</div>
+@foreach(var author in Model.Authors) {
+<div class="panel panel-default">
+    <div class="panel-heading d-flex">
+        <div>
+            <a asp-controller="blog" asp-action="author" asp-route-id="@author.AuthorId" class="btn btn-primary">View</a>
+            <a asp-controller="blog" asp-action="DeleteAuthor" asp-route-id="@author.AuthorId" class="btn btn-danger">Delete</a>
+        </div>
+        <h2 class="panel-title panelbuttontitle">@author.AuthorName</h2>
+    </div>
+    
+</div>
+}

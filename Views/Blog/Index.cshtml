@@ -1,8 +1,9 @@
 @model BlogPostList;
-<h1>Posts</h1>
-<a asp-controller="blog" asp-action="create" class="btn btn-success">Create post</a>
-<a asp-controller="blog" asp-action="adduser" class="btn btn-success">Add User</a>
-<br><br>
+<div class="d-flex toptitle">
+    <h1>Posts</h1>
+    <div class="flexspace"></div>
+    <a asp-controller="blog" asp-action="create" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create post</a>
+</div>
 @foreach(var post in Model.BlogPosts) {
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -10,20 +11,20 @@
         </div>
         <div class="panel-body">
             @if(post.Content.Length>280){
-                <p>@post.Content.Substring(0,280)...</p>
+                <p>@post.Content.Substring(0,280)&#8230;</p>
             } else {
                 <p>@post.Content</p>
             }
-
-            
-            
             
         </div>
-        <div class="panel-footer">
-            <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId" class="btn btn-info">Details</a>
-            <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId" class="btn btn-warning">Edit</a>
-            <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId" class="btn btn-danger">Delete</a>
-            Posted by: <a asp-controller="blog" asp-action="author" asp-route-id="@post.AuthorId">@post.AuthorName</a> at @post.CreatedAtAction
+        <div class="panel-footer d-flex">
+            <span class="b-height">Posted by: <a asp-controller="blog" asp-action="author" asp-route-id="@post.AuthorId">@post.AuthorName</a> at @post.CreatedAtAction</span>
+            <div class="flexspace"></div>
+            <div>
+                <a asp-controller="blog" asp-action="post" asp-route-id="@post.PostId" class="btn btn-info">Details</a>
+                <a asp-controller="blog" asp-action="edit" asp-route-id="@post.PostId" class="btn btn-warning">Edit</a>
+                <a asp-controller="blog" asp-action="delete" asp-route-id="@post.PostId" class="btn btn-danger">Delete</a>
+            </div>
         </div>
     </div>
 }

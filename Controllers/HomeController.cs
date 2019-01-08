@@ -22,7 +22,7 @@ namespace bloggingEngine.Controllers
         [UrlActionFilter]
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "What you can do with this.";
             // Console.WriteLine(Request.Path + Request.QueryString);
             return View();
         }
